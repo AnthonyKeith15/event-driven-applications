@@ -21,9 +21,10 @@ emitter.on(newPickedUpPackageAlert, (payload) => {
 })
 
 emitter.on(deliveredPackageVendorNotification, (payload) => {
-  console.log('DRIVER: Delivered ', payload.payload.orderId)
   emitter.emit(thankYouMessage, payload)
+  console.log('DRIVER: Delivered ', payload.payload.orderId)
   payload.event = 'delivered';
   console.log(payload)
 })
 
+module.exports = emitter
